@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    font-size: 1rem;
+  }
+  
+  button {
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
