@@ -1,11 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const HomePage = () => (
-  <div>
-    <h1>Welcome to the App</h1>
-    <p>Please <Link to="/login">Log In</Link> or <Link to="/signup">Sign Up</Link>.</p>
-  </div>
-);
+function HomePage({ onLogIn, onSignUp }) {
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
+  };
+
+  return (
+    <div>
+      <h1>Welcome to the App</h1>
+      <h2>Log In</h2>
+      <form onSubmit={(e) => { e.preventDefault(); onLogIn(credentials); }}>
+        <input name="username" placeholder="Username" onChange={handleInputChange} />
+        <input name="password" type="password" placeholder="Password" onChange={handleInputChange} />
+        <button type="submit">Log In</button>
+      </form>
+      <h2>Sign Up</h2>
+      <form onSubmit={(e) => { e.preventDefault(); onSignUp(credentials); }}>
+        <input name="username" placeholder="Username" onChange={handleInputChange} />
+        <input name="password" type="password" placeholder="Password" onChange={handleInputChange} />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
+}
 
 export default HomePage;
