@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import navStyles from '../styles/NavBar.module.css';
 
 function Navbar({ isLoggedIn, onLogout, setSearchQuery }) {
   const history = useHistory();
@@ -10,28 +11,90 @@ function Navbar({ isLoggedIn, onLogout, setSearchQuery }) {
   };
 
   return (
-    <nav>
-      {!isLoggedIn ? (
-        // Links visible when the user is not logged in
-        <>
-          <Link to="/signin">Sign In</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/contact">Contact Us</Link>
-        </>
-      ) : (
-        // Links visible when the user is logged in
-        <>
-          <Link to="/profile">Profile</Link>
-          <Link to="/goals">Goals</Link>
-          <Link to="/journey">Journey</Link>
-          <Link to="/settings">Settings</Link>
-          <button onClick={onLogout}>Sign Out</button>
-        </>
-      )}
+    <nav className={navStyles.navbar}>
+      <ul className={navStyles['nav-links']}>
+        {!isLoggedIn ? (
+          // Links visible when the user is not logged in
+          <>
+            <li>
+              <NavLink
+                exact
+                to="/"
+                activeClassName={navStyles.active}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/signin"
+                activeClassName={navStyles.active}
+              >
+                Sign In
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/signup"
+                activeClassName={navStyles.active}
+              >
+                Sign Up
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                activeClassName={navStyles.active}
+              >
+                Contact Us
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          // Links visible when the user is logged in
+          <>
+            <li>
+              <NavLink
+                to="/profile"
+                activeClassName={navStyles.active}
+              >
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/goals"
+                activeClassName={navStyles.active}
+              >
+                Goals
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/journey"
+                activeClassName={navStyles.active}
+              >
+                Journey
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/settings"
+                activeClassName={navStyles.active}
+              >
+                Settings
+              </NavLink>
+            </li>
+            <li>
+              <button onClick={onLogout}>Sign Out</button>
+            </li>
+          </>
+        )}
+      </ul>
 
       {/* Search Bar */}
       {isLoggedIn && (
-        <form onSubmit={handleSearch}>
+        <form className={navStyles['search-bar']} onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="Search..."

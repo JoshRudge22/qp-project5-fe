@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import homeStyles from '../styles/Home.module.css';
 
-function HomePage({ onLogIn, onSignUp }) {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials({ ...credentials, [name]: value });
-  };
-
+function HomePage() {
   return (
-    <div>
-      <h1>Welcome to the App</h1>
-      <h2>Log In</h2>
-      <form onSubmit={(e) => { e.preventDefault(); onLogIn(credentials); }}>
-        <input name="username" placeholder="Username" onChange={handleInputChange} />
-        <input name="password" type="password" placeholder="Password" onChange={handleInputChange} />
-        <button type="submit">Log In</button>
-      </form>
-      <h2>Sign Up</h2>
-      <form onSubmit={(e) => { e.preventDefault(); onSignUp(credentials); }}>
-        <input name="username" placeholder="Username" onChange={handleInputChange} />
-        <input name="password" type="password" placeholder="Password" onChange={handleInputChange} />
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className={homeStyles.container}>
+      {/* Log In Section */}
+      <div className={homeStyles.section}>
+        <img
+          /*src=*/
+          alt="Log In"
+        />
+        <h2>Log In</h2>
+        <Link to="/signin">Go to Log In</Link>
+      </div>
+
+      {/* Sign Up Section */}
+      <div className={homeStyles.section}>
+        <img
+        /*src=*/
+          alt="Sign Up"
+        />
+        <h2>Sign Up</h2>
+        <Link to="/signup">Go to Sign Up</Link>
+      </div>
     </div>
   );
 }
