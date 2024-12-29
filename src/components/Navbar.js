@@ -27,7 +27,7 @@ function Navbar({ isLoggedIn, onLogout, setSearchQuery }) {
             </li>
             <li>
               <NavLink
-                to="/signin"
+                to="/login"
                 activeClassName={navStyles.active}
               >
                 Sign In
@@ -43,7 +43,7 @@ function Navbar({ isLoggedIn, onLogout, setSearchQuery }) {
             </li>
             <li>
               <NavLink
-                to="/contact"
+                to="/settings/contact-us"
                 activeClassName={navStyles.active}
               >
                 Contact Us

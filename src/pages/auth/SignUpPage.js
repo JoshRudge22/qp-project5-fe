@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { signUp } from "../services/authService";
+import { signUp } from "../../components/Authorize";
+import signupStyles from "../../styles/SignUp.module.css"
 
 function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -27,10 +28,15 @@ function SignUpPage() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
+    <div className={signupStyles.container}> 
+      <img 
+        /*src=*/
+        alt="Sign Up" 
+        className={signupStyles.image} 
+      />
+      <h2 className={signupStyles.title}>Sign Up</h2>
+      {error && <p className={signupStyles.error}>{error}</p>}
+      <form onSubmit={handleSubmit} className={signupStyles.form}>
         <input
           type="text"
           name="username"
@@ -38,6 +44,7 @@ function SignUpPage() {
           value={formData.username}
           onChange={handleChange}
           required
+          className={signupStyles.input}
         />
         <input
           type="email"
@@ -46,6 +53,7 @@ function SignUpPage() {
           value={formData.email}
           onChange={handleChange}
           required
+          className={signupStyles.input}
         />
         <input
           type="password"
@@ -54,8 +62,9 @@ function SignUpPage() {
           value={formData.password}
           onChange={handleChange}
           required
+          className={signupStyles.input}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className={signupStyles.button}>Sign Up</button>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { logIn } from "../services/authService";
+import { logIn } from "../../components/Authorize";
+import loginStyles from "../../styles/Login.module.css"
 
 function LogInPage({ onLogin }) {
   const [credentials, setCredentials] = useState({
@@ -27,9 +28,9 @@ function LogInPage({ onLogin }) {
   };
 
   return (
-    <div>
+    <div className={loginStyles.container}>
       <h2>Log In</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"

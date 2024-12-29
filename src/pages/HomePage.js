@@ -12,7 +12,7 @@ function HomePage() {
           alt="Log In"
         />
         <h2>Log In</h2>
-        <Link to="/signin">Go to Log In</Link>
+        <Link to="/login">Go to Log In</Link>
       </div>
 
       {/* Sign Up Section */}

@@ -4,6 +4,8 @@ import './api/axiosDefault';
 import Navbar from './components/Navbar';
 import { signUp, logIn, logOut } from './components/Authorize';
 import HomePage from './pages/HomePage';
+import LogInPage from './pages/auth/LogInPage';
+import SignUpPage from './pages/auth/SignUpPage';
 import ProfilePage from './pages/ProfilePage';
 import GoalsPage from './pages/GoalsPage';
 import SearchResultsPage from './pages/SearchResultsPage';
@@ -57,7 +59,19 @@ function App() {
       />
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <Switch>
-        <Route exact path="/" render={() => <HomePage onLogIn={handleLogIn} onSignUp={handleSignUp} />} />
+        <Route 
+          exact 
+          path="/" 
+          render={() => <HomePage onLogIn={handleLogIn} onSignUp={handleSignUp} />} 
+        />
+        <Route 
+          path="/login" 
+          render={() => <LogInPage onLogin={handleLogIn} />} 
+        />
+        <Route 
+          path="/signup" 
+          render={() => <SignUpPage onSignUp={handleSignUp} />} 
+        />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/goals" component={GoalsPage} />
         <Route 

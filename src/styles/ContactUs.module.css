@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+.formContainer {
+    max-width: 1200px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .success-message,
+  .error-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+.success-message {
+    background-color: #cff0f2;
+    color: #3c763d;
+  }
+  
+.error-message {
+    background-color: #ffcdd2;
+    color: #a94442;
+  }
+  
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px; 
+    font-weight: bold; 
+  }
+  
+input[type="text"],
+input[type="email"],
+ input[type="tel"],
+ textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+button[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
